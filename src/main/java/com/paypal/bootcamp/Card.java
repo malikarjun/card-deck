@@ -4,10 +4,6 @@ public class Card {
 	private Suite suite;
 	private int value;
 
-	public Card() {
-
-	}
-
 	public Card(Suite suite, int value) {
 		this.suite = suite;
 		this.value = value;
@@ -27,6 +23,20 @@ public class Card {
 
 	public void setValue(int value) {
 		this.value = value;
+	}
+
+	public static int compareSuits(Card c1, Card c2){
+		if (c1.getSuite().ordinal()-c2.getSuite().ordinal()==0){
+			return c1.value - c2.value;
+		}
+		return  c1.getSuite().ordinal()-c2.getSuite().ordinal()
+	}
+
+	public static int compareValue(Card c1, Card c2){
+		if (c1.value == c2.value){
+			return c1.getSuite().ordinal()-c2.getSuite().ordinal();
+		}
+		return  c1.value - c2.value;
 	}
 
 	public String toString() {
