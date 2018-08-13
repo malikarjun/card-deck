@@ -25,7 +25,7 @@ public class Card {
 		this.value = value;
 	}
 
-	public int compareSuits(Card c){
+	public int compareSuite(Card c){
 		if (this.getSuite().ordinal()-c.getSuite().ordinal()==0){
 			return this.value - c.value;
 		}
@@ -41,6 +41,7 @@ public class Card {
 
 
 	public String toString() {
+
 		if (suite.equals(Suite.SPADE))
 			return value + " " + (char) '\u2660';
 		else if (suite.equals(Suite.DIAMOND))
@@ -49,6 +50,7 @@ public class Card {
 			return value + " " + (char) '\u2663';
 		else if (suite.equals(Suite.HEART))
 			return value + " " + (char) '\u2764';
+
 		return value + " " + suite;
 	}
 }

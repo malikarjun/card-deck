@@ -13,17 +13,23 @@ class SortByValue implements Comparator<Card>{
 
 }
 public class Deck {
+    final int NUM_OF_CARDS_STD = 52;
     ArrayList<Card> cards;
 
-    public Deck() {
+    public Deck(int noOfCards) {
         cards = new ArrayList<Card>();
         int[] values = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 };
         for (Suite suite : Suite.values()) {
+            if(suite == Suite.JOKER)
+                continue;
             for (int value : values) {
                 cards.add(new Card(suite, value));
             }
 
         }
+
+        for(int i = 0; i < (noOfCards - NUM_OF_CARDS_STD); i++)
+            cards.add(new Card(Suite.JOKER, -1));
     }
 
     public void sort() {
@@ -71,17 +77,17 @@ public class Deck {
         return cards.toString();
     }
 
-//    public static void main(String[] args)
-//    {
-//        Deck d = new Deck();
-//        d.shuffle();
-//        System.out.println(d.toString());
-//
-//        d.sort();
-//        System.out.println(d.toString());
-//
-//
-//    }
+    public static void main(String[] args)
+    {
+        Deck d = new Deck(53);
+        d.shuffle();
+        System.out.println(d.toString());
+
+        d.sort();
+        System.out.println(d.toString());
+
+
+    }
 
 
 
