@@ -25,19 +25,20 @@ public class Card {
 		this.value = value;
 	}
 
-	public static int compareSuits(Card c1, Card c2){
-		if (c1.getSuite().ordinal()-c2.getSuite().ordinal()==0){
-			return c1.value - c2.value;
+	public int compareSuits(Card c){
+		if (this.getSuite().ordinal()-c.getSuite().ordinal()==0){
+			return this.value - c.value;
 		}
-		return  c1.getSuite().ordinal()-c2.getSuite().ordinal()
+		return  this.getSuite().ordinal()-c.getSuite().ordinal();
 	}
 
-	public static int compareValue(Card c1, Card c2){
-		if (c1.value == c2.value){
-			return c1.getSuite().ordinal()-c2.getSuite().ordinal();
+	public int compareValue( Card c){
+		if (this.value == c.value){
+			return this.getSuite().ordinal()-c.getSuite().ordinal();
 		}
-		return  c1.value - c2.value;
+		return  this.value - c.value;
 	}
+
 
 	public String toString() {
 		if (suite.equals(Suite.SPADE))
